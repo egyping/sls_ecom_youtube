@@ -1,0 +1,18 @@
+{
+    "id": "fe010ea9-a290-49fb-87cb-d9fc079ae5be",
+    "title": "Firewall Rain Jacket",
+    "brand": "RAB",
+    "description": "Lightweight rain jacket made for intrepid hikers",
+    "colour": "red",
+    "sizesAvailable": [
+    { "sizeCode": 1, "displayValue": "small" },
+    { "sizeCode": 2, "displayValue": "medium" },
+    { "sizeCode": 3, "displayValue": "large" }
+    ],
+    "pk": "clothing", > group
+    "sk": "mens#jackets#fe010ea9-a290-49fb-87cb-d9fc079ae5be" > category - subcategory
+},
+
+"id": orderid 
+"pk": "2323213" > user id 
+"sk": "order#3442443243" > date time 
