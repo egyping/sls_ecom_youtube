@@ -36,6 +36,11 @@ export const handler = async (event: APIGatewayProxyEvent) => {
   
       return {
         statusCode: 200,
+        headers: {
+            "Access-Control-Allow-Origin": "*", // Match this with what you set in corsSettings
+            "Access-Control-Allow-Credentials": true, // Keep consistent with corsSettings
+          
+          },
         body: JSON.stringify(orders),
       }
 

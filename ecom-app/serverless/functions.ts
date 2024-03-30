@@ -1,6 +1,7 @@
 import {AWS} from '@serverless/typescript'
 
 const corsSettings = {
+    origin: '*',
     headers: [
         // Specify allowed headers
         'Content-Type',
@@ -12,6 +13,7 @@ const corsSettings = {
       ],
       allowCredentials: false,
 }
+
 
 const iamGetSecret = {
   Effect: 'Allow',
