@@ -16,3 +16,24 @@ export interface ProductsRecord {
     displayValue: string;
   }[];
 }
+type TimesStamp = number
+
+export type OrderStatus = 'pending' | 'shipped' | 'delivered' | 'packed'
+
+
+export interface OrderRecord {
+  id: string;
+  pk: string;
+  sk: `order#${TimesStamp}`;
+
+  userId: string
+  userEmail: string
+  dateCreated: TimesStamp
+  dateUpdated?: TimesStamp
+  status: OrderStatus
+  items: {
+    id: ProductId
+    count: number
+    size: number
+  }[]
+}

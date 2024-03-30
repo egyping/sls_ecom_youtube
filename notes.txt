@@ -16,3 +16,44 @@
 "id": orderid 
 "pk": "2323213" > user id 
 "sk": "order#3442443243" > date time 
+
+Order Format 
+
+{
+  "items": [
+    {
+      "id": "3ff7a0f7-6c28-48e8-8805-ec6a374b58df",
+      "count": 2,
+      "size": 2
+    },
+    {
+      "id": "6fd14c62-41a7-430b-acbc-625cf8db79ec",
+      "count": 1,
+      "size": 3
+    }
+  ],
+  "pk": "8114e6f2-1935-4e77-8988-10413af2e703",
+  "sk": "order#1664879474431",
+  "status": "placed",
+  "userEmail": "pythonarabia@gmail.com",
+  "userId": "8114e6f2-1935-4e77-8988-10413af2e703"
+}
+
+ API Gateway event
+ -----------------
+{
+  "resource": "/users/{userId}",
+  "path": "/users/123",
+  "httpMethod": "GET",
+  "headers": {
+    "Authorization": "Bearer eyJraWQiOiI2V...",
+    "...": "..."
+  },
+  "pathParameters": {
+    "userId": "123"
+  },
+  "queryStringParameters": null,
+  "stageVariables": null,
+  "body": null,
+  "isBase64Encoded": false
+}

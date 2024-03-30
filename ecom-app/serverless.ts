@@ -1,11 +1,15 @@
 import type { AWS } from '@serverless/typescript';
 import functions from './serverless/functions';
 import DynamoResources from './serverless/dynamodb';
-
+import CognitoResources from './serverless/cognitoResources';
+import SecretsConfig from './serverless/secrets';
 
 const serverlessConfiguration: AWS = {
   service: 'ecom-app',
   frameworkVersion: '3',
+
+  useDotenv: true,
+
   plugins: ['serverless-esbuild', 'serverless-iam-roles-per-function'],
   custom: {
     tables: {
@@ -17,6 +21,7 @@ const serverlessConfiguration: AWS = {
       prod: 'serverlessUser',
       int: 'serverlessUser',
     },
+    eventBrigeBusName: 'ordersEventBus',
     esbuild: {
       bundle: true,
       minify: false,
@@ -42,6 +47,7 @@ const serverlessConfiguration: AWS = {
       productTable: '${self:custom.tables.productTable}',
       ordersTable: '${self:custom.tables.ordersTable}',
       region: '${self:provider.region}',
+      eventBrigeBusName: '${self:custom.eventBrigeBusName}',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
     },
     iamRoleStatements: [
@@ -63,7 +69,9 @@ const serverlessConfiguration: AWS = {
   functions,
   resources: {
     Resources: {
+      ...CognitoResources,
       ...DynamoResources,
+      ...SecretsConfig,
     },
     Outputs: {
       ProductDynamoTableName: {
@@ -76,6 +84,12 @@ const serverlessConfiguration: AWS = {
         Value: '${self:custom.tables.ordersTable}',
         Export: {
           Name: 'OrdersDynamoTableName',
+        },
+      },
+      UserPoolId: {
+        Value: { Ref: 'CognitoUserPool' },
+        Export: { 
+          Name: 'ecom-UserPoolId' 
         },
       },
     },
