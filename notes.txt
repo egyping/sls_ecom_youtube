@@ -57,3 +57,36 @@ Order Format
   "body": null,
   "isBase64Encoded": false
 }
+
+
+**Pre-Installation** 
+
+1- AWS Account 
+
+https://youtu.be/VQrG09t4AeY
+
+2- Node setup 
+nvm install 
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
+
+nvm —version 
+
+nvm use 20 
+
+3- Install postman 
+
+4- vscode
+
+5- serverless framework 
+
+npm install -g serverless 
+
+serverless -v
+
+sls -v
+
+configure sls to have access to aws 
+
+get access key from aws account 
+
+sls config credentials —provider aws —profile serverlessUse —key accessKeyText —secret secretKeyText
